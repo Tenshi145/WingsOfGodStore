@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WingsOfGod - Portadores De La Fe </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .cart-icon {
+            background: none;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cart-icon:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/Users/tenshi_145/Desktop/WingsOfGodWeb/Imagenes/SALMO 91/eef1ba7f-94cc-48e7-a523-5e8fa1194ca8.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #cccccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #cccccc;
+        }
+
+        .bible-verse {
+            font-style: italic;
+            color: #aaaaaa;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #333333, #555555);
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+        }
+
+        /* Featured Products */
+        .featured-products {
+            padding: 5rem 0;
+            background: #111111;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #ffffff;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid #333333;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255,255,255,0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #333333, #555555);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .product-verse {
+            color: #aaaaaa;
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background: #cccccc;
+            transform: translateY(-1px);
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 5rem 0;
+            background: #0a0a0a;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-radius: 15px;
+            border: 1px solid #333333;
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .value-description {
+            color: #cccccc;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid #333333;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #cccccc;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333333;
+            padding-top: 2rem;
+            color: #aaaaaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Wings Of God</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="cart-icon" onclick="toggleCart()">Carrito (0)</button>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Portadores De la Fe</h1>
+            <p>Ropa premium para guerreros</p>
+            <div class="bible-verse">
+                "Todo lo puedo en Cristo que me fortalece" - Filipenses 4:13
+            </div>
+            <a href="#productos" class="cta-button">EXPLORAR COLECCIÓN</a>
+        </div>
+    </section>
+
+    <section class="featured-products" id="productos">
+        <div class="container">
+            <h2 class="section-title">COLECCIÓN FITNESS FAITH</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Users/tenshi_145/Desktop/WingsOfGodWeb/Imagenes/1 TIMOTEO/1867d2ed-ef27-4088-bd29-6d1f5923b6ba.png" alt="Cross Training Tee" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    </div>
+                    <h3 class="product-title">1 Timoteo Tee</h3>
+                    <p class="product-verse">"Pelea la buena batalla de la fe" - 1 Timoteo 6:12</p>
+                    <div class="product-price">$899 MXN</div>
+                    <button class="add-to-cart" onclick="addToCart('1 Timoteo Tee', 699)">COMING SOON!!</button>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/Users/tenshi_145/Desktop/WingsOfGodWeb/Imagenes/SALMO 91/1f125579-c05e-4d9e-a223-07009786e400.png" alt="Cross Training Tee" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    </div>
+                    <h3 class="product-title">SALMO 91</h3>
+                    <p class="product-verse">"A sus ángeles mandará acerca de ti" - Salmo 91:11</p>
+                    <div class="product-price">$699 MXN</div>
+                    <button class="add-to-cart" onclick="addToCart('SALMO 91 Tee', 699)">COMING SOON!!</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section" id="nosotros">
+        <div class="container">
+            <h2 class="section-title">NUESTROS VALORES</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">✝️</div>
+                    <h3 class="value-title">FE</h3>
+                    <p class="value-description">Cada prenda lleva un mensaje de esperanza y fortaleza espiritual para tu día a día.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">💪</div>
+                    <h3 class="value-title">FUERZA</h3>
+                    <p class="value-description">Diseñada para acompañarte en tu rutina fitness, combinando comodidad y estilo.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">👑</div>
+                    <h3 class="value-title">PREMIUM</h3>
+                    <p class="value-description">Materiales de alta calidad y diseños únicos que reflejan tu identidad como hijo de Dios.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3 class="value-title">COMUNIDAD</h3>
+                    <p class="value-description">Más que ropa, somos una comunidad de creyentes que se apoyan mutuamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FAITH WEAR</h3>
+                    <p>Streetwear cristiano premium para la nueva generación de creyentes.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>CONTACTO</h3>
+                    <a href="mailto:wingsofgodoficial@gmail.com">wingsofgodoficial@gmail.com</a>
+                    <p>Tijuana, Baja California, México</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>SÍGUENOS</h3>
+                    <a href="https://www.instagram.com/wingsofgodoficial/" target="_blank">Instagram</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>INFORMACIÓN</h3>
+                    <a href="#">Envíos</a>
+                    <a href="#">Devoluciones</a>
+                    <a href="#">Tallas</a>
+                    <a href="#">Términos</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Faith Wear. Todos los derechos reservados. Hecho con ❤️ y fe.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+        let cartCount = 0;
+
+        function addToCart(productName, price) {
+            cart.push({ name: productName, price: price });
+            cartCount++;
+            updateCartDisplay();
+            
+            // Animación de confirmación
+            showAddedToCartMessage(productName);
+        }
+
+        function updateCartDisplay() {
+            const cartButton = document.querySelector('.cart-icon');
+            cartButton.textContent = `Carrito (${cartCount})`;
+        }
+
+        function showAddedToCartMessage(productName) {
+            // Crear mensaje temporal
+            const message = document.createElement('div');
+            message.textContent = `¡${productName} ESPERA LAS ACTUALIZACIONES EN NUSTRA PAGINA DE IG!`;
+            message.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: #ffffff;
+                color: #000000;
+                padding: 1rem 2rem;
+                border-radius: 25px;
+                z-index: 1001;
+                font-weight: bold;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                animation: slideIn 0.3s ease;
+            `;
+
+            document.body.appendChild(message);
+
+            // Remover mensaje después de 3 segundos
+            setTimeout(() => {
+                message.remove();
+            }, 3000);
+        }
+
+        function toggleCart() {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío');
+                return;
+            }
+
+            let cartContent = 'TU CARRITO:\n\n';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                cartContent += `${index + 1}. ${item.name} - $${item.price} MXN\n`;
+                total += item.price;
+            });
+
+            cartContent += `\nTOTAL: $${total} MXN`;
+            
+            alert(cartContent);
+        }
+
+        // Smooth scrolling para los enlaces del menú
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animación CSS para el mensaje de carrito
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
